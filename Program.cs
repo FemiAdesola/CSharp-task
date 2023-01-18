@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Text;
 
 namespace CSharpFundamental
 {
@@ -28,7 +29,6 @@ namespace CSharpFundamental
             {
                 int arrayARows = result.GetLength(0);
                 int arrayBCols = result.GetLength(1);
-
                 for (int i = 0; i < arrayARows; i++)
                 {
                     for (int j = 0; j < arrayBCols; j++)
@@ -42,13 +42,26 @@ namespace CSharpFundamental
         static string toTitleCase(string input)
         {
             /* Write your code here */
-            var wordInSentence = input.Split(' ');
-            var stringText = "";
-            foreach (var sentence in wordInSentence)
+            // var wordInSentence = input.Split(' ');
+            // var stringText = "";
+            // foreach (var sentence in wordInSentence)
+            // {
+            //     stringText += char.ToUpper(sentence[0]) + sentence.Substring(1) + ' ';
+            // }
+            // return stringText.Trim();
+
+            StringBuilder sentence = new StringBuilder();
+            foreach (string wordInSentence in input.Split(' '))
             {
-                stringText += char.ToUpper(sentence[0]) + sentence.Substring(1) + ' ';
+                int i = (byte)(wordInSentence[0]);
+                if (i >= 97 && i <= 122)
+                {
+                    sentence.Append(string.Join("", Convert.ToChar(i - 32), wordInSentence[1.. (wordInSentence.Length)]));
+                }
+                sentence.Append(" ");
             }
-            return stringText.Trim();
+            return sentence.ToString();
+           
         }
 
         static int[,] matrixMultiply(int[,] array1, int[,] array2)
