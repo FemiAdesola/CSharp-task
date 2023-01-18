@@ -42,32 +42,6 @@ namespace CSharpFundamental
         static string toTitleCase(string input)
         {
             /* Write your code here */
-            // // First version 
-            // char[] array = input.ToCharArray(); 
-            // if (array.Length >= 1)
-            // {
-            //     if (char.IsLower(array[0]))
-            //     {
-            //         array[0] = char.ToUpper(array[0]);
-            //     }
-            // } 
-            // for (int i = 1; i < array.Length; i++)
-            // {
-            //     if (array[i - 1] == ' ')
-            //     {
-            //         if (char.IsLower(array[i]))
-            //         {
-            //             array[i] = char.ToUpper(array[i]);
-            //         }
-            //     }
-            // }
-            // return new string(array);
-            // if (string.IsNullOrEmpty(input))
-            // {
-            //     return string.Empty;
-            // }
-           
-           // Second version
             var wordInSentence = input.Split(' ');
             var stringText = "";
             foreach (var sentence in wordInSentence)
